@@ -1,0 +1,12 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Висота контейнера дорівнює висоті вікна */
+  width: 100%;
+  position: fixed; /* Щоб завжди бути в центрі екрана */
+  top: 0;
+  left: 0;
+  z-index: 999; /* Якщо потрібен поверх інших елементів */
+  background-color: rgba(255, 255, 255, 0.8);
+}
