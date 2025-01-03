@@ -1,8 +1,14 @@
 import React from "react";
 import ImageCard from "../ImageCard/ImageCard";
 import s from "./ImageGallery.module.css";
+import { Photo } from "../../types";
 
-const ImageGallery = ({ images, onClick }) => {
+interface ImageGalleryProps {
+  images: Photo[];
+  onClick: (image: Photo) => void;
+}
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images, onClick }) => {
   return (
     <div className={s.gallery}>
       <ul className={s.list}>
@@ -17,7 +23,3 @@ const ImageGallery = ({ images, onClick }) => {
 };
 
 export default ImageGallery;
-
-{
-  /* <a href={image.urls.regular}></a> */
-}

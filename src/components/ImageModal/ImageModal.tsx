@@ -1,11 +1,17 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import ReactModal from "react-modal";
 import s from "./ImageModal.module.css";
+import { Photo } from "../../types";
 
 ReactModal.setAppElement("#root");
 
-const ImageModal = ({ image, onClose }) => {
-  const handleBackdropClick = (e) => {
+interface ImageModalProps {
+  image: Photo | null;
+  onClose: () => void;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -24,7 +30,6 @@ const ImageModal = ({ image, onClose }) => {
         <button onClick={onClose} className={s.closeButton}>
           Close
         </button>
-
         {image && (
           <>
             <img src={image.urls.regular} alt={image.alt_description} />
